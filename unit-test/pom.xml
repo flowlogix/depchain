@@ -38,7 +38,12 @@
             <groupId>io.github.artsok</groupId>
             <artifactId>rerunner-jupiter</artifactId>
             <version>2.1.6</version>
-            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.jupiter</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

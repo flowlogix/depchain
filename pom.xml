@@ -22,10 +22,11 @@
     <parent>
         <groupId>com.flowlogix</groupId>
         <artifactId>infra-pom</artifactId>
-        <version>14-M1</version>
+        <version>14-M3</version>
     </parent>
 
     <modules>
         <module>unit-test</module>
+        <module>integration-test</module>
     </modules>
 </project>
