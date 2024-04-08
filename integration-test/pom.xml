@@ -35,7 +35,7 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit4-mock</artifactId>
-            <version>3.9.1</version>
+            <version>3.9.2</version>
         </dependency>
 
         <!-- Base Arquillian Resolver APIs -->
