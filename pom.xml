@@ -22,11 +22,31 @@
     <parent>
         <groupId>com.flowlogix</groupId>
         <artifactId>infra-pom</artifactId>
-        <version>14</version>
+        <version>15-M1</version>
     </parent>
+
+    <properties>
+        <maven.compiler.release>11</maven.compiler.release>
+        <base.directory.property>depchain.basedir</base.directory.property>
+        <base.directory.groupId>com.flowlogix.depchain</base.directory.groupId>
+        <base.directory.artifactId>depchain</base.directory.artifactId>
+        <checkstyle.supressionsLocation>${depchain.basedir}/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
+    </properties>
 
     <modules>
         <module>unit-test</module>
         <module>integration-test</module>
     </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.commonjava.maven.plugins</groupId>
+                <artifactId>directory-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
