@@ -17,11 +17,6 @@ package com.flowlogix.testcontainers;
 
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.testcontainers.containers.GenericContainer;
-import org.testcontainers.containers.wait.strategy.Wait;
-import org.testcontainers.utility.DockerImageName;
-import java.util.Optional;
-import static java.util.function.Predicate.not;
 
 /**
  * For use with JUnit 5
@@ -31,30 +26,16 @@ import static java.util.function.Predicate.not;
  * @author lprimak
  */
 public class PayaraServerLifecycleExtension implements BeforeAllCallback, ExtensionContext.Store.CloseableResource {
-    private static GenericContainer<?> payara;
+    private static final PayaraServerTestContainer PAYARA_TC = new PayaraServerTestContainer();
 
     @Override
-    @SuppressWarnings("checkstyle:MagicNumber")
     public void beforeAll(ExtensionContext context) throws Exception {
-        if (payara == null && !Boolean.getBoolean("testcontainers.skip")) {
-            var imageName = Optional.ofNullable(System.getProperty("payara.imageName"))
-                    .filter(not(String::isBlank));
-            payara = new GenericContainer<>(DockerImageName.parse(imageName.orElse("payara/server-full")))
-                    .withExposedPorts(4848, 8080, 8181, 9009)
-                    .waitingFor(Wait.forLogMessage(".*Payara Server.*startup time.*\\n", 1));
-            payara.start();
-            System.out.println(String.format("# Payara debugger location: %s:%d", payara.getHost(), payara.getMappedPort(9009)));
-            System.setProperty("adminHost", payara.getHost());
-            System.setProperty("adminPort", Integer.toString(payara.getMappedPort(4848)));
-            System.setProperty("httpPort", Integer.toString(payara.getMappedPort(8080)));
-            System.setProperty("httpsPort", Integer.toString(payara.getMappedPort(8181)));
-            context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL).put(this.getClass().getName(), this);
-        }
+        PAYARA_TC.start();
+        context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL).put(this.getClass().getName(), this);
     }
 
     @Override
     public void close() throws Throwable {
-        payara.stop();
-        payara = null;
+        PAYARA_TC.stop();
     }
 }
