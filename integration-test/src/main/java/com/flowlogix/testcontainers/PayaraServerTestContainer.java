@@ -33,15 +33,21 @@ public class PayaraServerTestContainer {
                     .withExposedPorts(4848, 8080, 8181, 9009)
                     .waitingFor(Wait.forLogMessage(".*Payara Server.*startup time.*\\n", 1));
             payara.start();
-            System.out.println(String.format("# Payara debugger location: %s:%d", payara.getHost(), payara.getMappedPort(9009)));
+            System.out.printf("# Payara debugger location: %s:%d%n", payara.getHost(), payara.getMappedPort(9009));
             System.setProperty("adminHost", payara.getHost());
             System.setProperty("adminPort", Integer.toString(payara.getMappedPort(4848)));
             System.setProperty("httpPort", Integer.toString(payara.getMappedPort(8080)));
             System.setProperty("httpsPort", Integer.toString(payara.getMappedPort(8181)));
+            if (System.getProperty("sslPort", "").isBlank()) {
+                System.setProperty("sslPort", Integer.toString(payara.getMappedPort(8181)));
+            }
         }
     }
 
     public void stop() {
+        if (!Boolean.getBoolean("testcontainers.reuse.enable")) {
+            payara.stop();
+        }
         payara = null;
     }
 }
