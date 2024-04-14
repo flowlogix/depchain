@@ -45,9 +45,7 @@ public class PayaraServerTestContainer {
     }
 
     public void stop() {
-        if (!Boolean.getBoolean("testcontainers.reuse.enable")) {
-            payara.stop();
-        }
+        // do not stop container manually, as it's already stopped at this point by TestContainers
         payara = null;
     }
 }
