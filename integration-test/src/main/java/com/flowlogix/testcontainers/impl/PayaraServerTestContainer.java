@@ -13,19 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.flowlogix.testcontainers;
+package com.flowlogix.testcontainers.impl;
 
+import com.flowlogix.testcontainers.ContainerInterface;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.DockerImageName;
 import java.util.Optional;
 import static java.util.function.Predicate.not;
 
-public class PayaraServerTestContainer {
+public class PayaraServerTestContainer implements ContainerInterface {
     private GenericContainer<?> payara;
 
     @SuppressWarnings("checkstyle:MagicNumber")
-    public void start() {
+    @Override
+    public ContainerInterface start() {
         if (payara == null && !Boolean.getBoolean("testcontainers.skip")) {
             var imageName = Optional.ofNullable(System.getProperty("payara.imageName"))
                     .filter(not(String::isBlank));
@@ -42,10 +44,13 @@ public class PayaraServerTestContainer {
                 System.setProperty("sslPort", Integer.toString(payara.getMappedPort(8181)));
             }
         }
+        return this;
     }
 
-    public void stop() {
+    @Override
+    public ContainerInterface stop() {
         // do not stop container manually, as it's already stopped at this point by TestContainers
         payara = null;
+        return this;
     }
 }
