@@ -29,10 +29,12 @@ public class PayaraServerTestContainer implements ContainerInterface {
     @Override
     public ContainerInterface start() {
         if (payara == null && !Boolean.getBoolean("testcontainers.skip")) {
-            var imageName = Optional.ofNullable(System.getProperty("payara.imageName"))
+            Optional<String> imageName = Optional.ofNullable(System.getProperty("payara.imageName"))
                     .filter(not(String::isBlank));
+            double memory = Double.parseDouble(System.getProperty("payara.memory", "1.5"));
             payara = new GenericContainer<>(DockerImageName.parse(imageName.orElse("payara/server-full")))
                     .withExposedPorts(4848, 8080, 8181, 9009)
+                    .withCreateContainerCmdModifier(cmd -> cmd.getHostConfig().withMemory((long) memory + 1024 * 1024 * 1024))
                     .waitingFor(Wait.forLogMessage(".*Payara Server.*startup time.*\\n", 1));
             payara.start();
             System.out.printf("# Payara debugger location: %s:%d%n", payara.getHost(), payara.getMappedPort(9009));
