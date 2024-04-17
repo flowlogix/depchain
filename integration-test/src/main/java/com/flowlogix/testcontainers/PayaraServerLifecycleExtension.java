@@ -17,7 +17,7 @@ package com.flowlogix.testcontainers;
 
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import java.util.ServiceLoader;
+import java.util.Optional;
 import static org.jboss.arquillian.junit5.ArquillianExtension.RUNNING_INSIDE_ARQUILLIAN;
 
 /**
@@ -28,23 +28,22 @@ import static org.jboss.arquillian.junit5.ArquillianExtension.RUNNING_INSIDE_ARQ
  * @author lprimak
  */
 public class PayaraServerLifecycleExtension implements BeforeAllCallback, ExtensionContext.Store.CloseableResource {
-    private static ContainerInterface payaraTC;
+    private Optional<ContainerInterface> payaraTC = Optional.empty();
 
     @Override
+    @SuppressWarnings("unchecked")
     public void beforeAll(ExtensionContext context) throws Exception {
         boolean inContainer = Boolean.parseBoolean(context
                 .getConfigurationParameter(RUNNING_INSIDE_ARQUILLIAN).orElse("false"));
         if (!inContainer) {
-            payaraTC = ServiceLoader.load(ContainerInterface.class).findFirst()
-                    .map(ContainerInterface::start).orElse(null);
+            payaraTC = (Optional<ContainerInterface>)
+                    context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL)
+                            .getOrComputeIfAbsent(this.getClass().getName(), ContainerInterface::create);
         }
-        context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL).put(this.getClass().getName(), this);
     }
 
     @Override
     public void close() throws Throwable {
-        if (payaraTC != null) {
-            payaraTC.stop();
-        }
+        payaraTC.ifPresent(ContainerInterface::stop);
     }
 }

@@ -17,23 +17,25 @@ package com.flowlogix.testcontainers;
 
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
-import java.util.ServiceLoader;
+import java.util.Optional;
 
 public class PayaraServerTestNGLifecycleExtension implements ISuiteListener {
-    private static ContainerInterface payaraTC;
-
     @Override
     public void onStart(ISuite suite) {
         if (!"Arquillian".equalsIgnoreCase(suite.getName())) {
-            payaraTC = ServiceLoader.load(ContainerInterface.class).findFirst()
-                    .map(ContainerInterface::start).orElse(null);
+            if (get(suite).isEmpty()) {
+                ContainerInterface.create(getClass().getName())
+                        .ifPresent(payaraTC -> suite.setAttribute(getClass().getName(), payaraTC));
+            }
         }
     }
 
     @Override
     public void onFinish(ISuite suite) {
-        if (payaraTC != null) {
-            payaraTC.stop();
-        }
+        get(suite).ifPresent(ContainerInterface::stop);
+    }
+
+    private Optional<ContainerInterface> get(ISuite suite) {
+        return Optional.ofNullable((ContainerInterface) suite.getAttribute(getClass().getName()));
     }
 }

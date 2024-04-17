@@ -15,7 +15,15 @@
  */
 package com.flowlogix.testcontainers;
 
+import java.util.Optional;
+import java.util.ServiceLoader;
+
 public interface ContainerInterface {
     ContainerInterface start();
     ContainerInterface stop();
+
+    static Optional<ContainerInterface> create(String key) {
+        return ServiceLoader.load(ContainerInterface.class).findFirst()
+                .map(ContainerInterface::start);
+    }
 }

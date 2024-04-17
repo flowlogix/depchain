@@ -34,7 +34,8 @@ public class PayaraServerTestContainer implements ContainerInterface {
             double memory = Double.parseDouble(System.getProperty("payara.memory", "1.5"));
             payara = new GenericContainer<>(DockerImageName.parse(imageName.orElse("payara/server-full")))
                     .withExposedPorts(4848, 8080, 8181, 9009)
-                    .withCreateContainerCmdModifier(cmd -> cmd.getHostConfig().withMemory((long) memory + 1024 * 1024 * 1024))
+                    .withCreateContainerCmdModifier(cmd -> cmd.getHostConfig()
+                            .withMemory((long) (memory * 1024 * 1024 * 1024)))
                     .waitingFor(Wait.forLogMessage(".*Payara Server.*startup time.*\\n", 1));
             payara.start();
             System.out.printf("# Payara debugger location: %s:%d%n", payara.getHost(), payara.getMappedPort(9009));
@@ -51,7 +52,9 @@ public class PayaraServerTestContainer implements ContainerInterface {
 
     @Override
     public ContainerInterface stop() {
-        // do not stop container manually, as it's already stopped at this point by TestContainers
+        if (payara != null && payara.isRunning()) {
+            payara.stop();
+        }
         payara = null;
         return this;
     }
