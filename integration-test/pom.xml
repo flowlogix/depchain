@@ -64,6 +64,13 @@
             <artifactId>arquillian-suite-extension</artifactId>
             <version>1.2.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.10.1</version>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
