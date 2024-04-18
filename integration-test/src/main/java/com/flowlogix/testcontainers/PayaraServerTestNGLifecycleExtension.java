@@ -15,16 +15,26 @@
  */
 package com.flowlogix.testcontainers;
 
+import org.testcontainers.containers.GenericContainer;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import java.util.Optional;
+import java.util.function.Consumer;
+import static com.flowlogix.testcontainers.ContainerInterface.POST_START_PROPERTY;
+import static com.flowlogix.testcontainers.ContainerInterface.PRE_START_PROPERTY;
 
 public class PayaraServerTestNGLifecycleExtension implements ISuiteListener {
     @Override
     public void onStart(ISuite suite) {
         if (!"Arquillian".equalsIgnoreCase(suite.getName())) {
-            if (get(suite).isEmpty()) {
-                ContainerInterface.create(getClass().getName())
+            if (get(suite, getClass().getName(), ContainerInterface.class).isEmpty()) {
+                @SuppressWarnings("unchecked")
+                var preStart = get(suite, PRE_START_PROPERTY, Object.class)
+                        .map(obj -> (Consumer<GenericContainer<?>>) obj);
+                @SuppressWarnings("unchecked")
+                var postStart = get(suite, POST_START_PROPERTY, Object.class)
+                        .map(obj -> (Consumer<GenericContainer<?>>) obj);
+                ContainerInterface.create(preStart.orElse(container -> { }), postStart.orElse(container -> { }))
                         .ifPresent(payaraTC -> suite.setAttribute(getClass().getName(), payaraTC));
             }
         }
@@ -32,10 +42,11 @@ public class PayaraServerTestNGLifecycleExtension implements ISuiteListener {
 
     @Override
     public void onFinish(ISuite suite) {
-        get(suite).ifPresent(ContainerInterface::stop);
+        get(suite, getClass().getName(), ContainerInterface.class).ifPresent(ContainerInterface::stop);
     }
 
-    private Optional<ContainerInterface> get(ISuite suite) {
-        return Optional.ofNullable((ContainerInterface) suite.getAttribute(getClass().getName()));
+    @SuppressWarnings("unchecked")
+    private static <TT> Optional<TT> get(ISuite suite, String key, Class<TT> cls) {
+        return Optional.ofNullable((TT) suite.getAttribute(key));
     }
 }

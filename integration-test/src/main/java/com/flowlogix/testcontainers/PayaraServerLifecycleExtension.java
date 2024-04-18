@@ -17,7 +17,11 @@ package com.flowlogix.testcontainers;
 
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
+import org.testcontainers.containers.GenericContainer;
 import java.util.Optional;
+import java.util.function.Consumer;
+import static com.flowlogix.testcontainers.ContainerInterface.POST_START_PROPERTY;
+import static com.flowlogix.testcontainers.ContainerInterface.PRE_START_PROPERTY;
 import static org.jboss.arquillian.junit5.ArquillianExtension.RUNNING_INSIDE_ARQUILLIAN;
 
 /**
@@ -36,9 +40,14 @@ public class PayaraServerLifecycleExtension implements BeforeAllCallback, Extens
         boolean inContainer = Boolean.parseBoolean(context
                 .getConfigurationParameter(RUNNING_INSIDE_ARQUILLIAN).orElse("false"));
         if (!inContainer) {
+            Consumer<GenericContainer<?>> preStart = context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL)
+                    .getOrComputeIfAbsent(PRE_START_PROPERTY, key -> container -> { }, Consumer.class);
+            Consumer<GenericContainer<?>> postStart = context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL)
+                    .getOrComputeIfAbsent(POST_START_PROPERTY, key -> container -> { }, Consumer.class);
             payaraTC = (Optional<ContainerInterface>)
                     context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL)
-                            .getOrComputeIfAbsent(this.getClass().getName(), ContainerInterface::create);
+                            .getOrComputeIfAbsent(this.getClass().getName(),
+                                    key -> ContainerInterface.create(preStart, postStart));
         }
     }
 

@@ -15,15 +15,32 @@
  */
 package com.flowlogix.testcontainers;
 
+import org.testcontainers.containers.GenericContainer;
 import java.util.Optional;
 import java.util.ServiceLoader;
+import java.util.function.Consumer;
 
 public interface ContainerInterface {
-    ContainerInterface start();
+    /**
+     * Pre-start property name
+     * Called before container start
+     * Type of {@code Consumer<GenericContainer<?>>}
+     * @see #start(Consumer, Consumer)
+     */
+    String PRE_START_PROPERTY = ContainerInterface.class.getName() + ".preStart";
+    /**
+     * Post-start property name
+     * Called after container start
+     * Type of {@code Consumer<GenericContainer<?>>}
+     * @see #start(Consumer, Consumer)
+     */
+    String POST_START_PROPERTY = ContainerInterface.class.getName() + ".postStart";
+    ContainerInterface start(Consumer<GenericContainer<?>> preStart, Consumer<GenericContainer<?>> postStart);
     ContainerInterface stop();
 
-    static Optional<ContainerInterface> create(String key) {
+    static Optional<ContainerInterface> create(Consumer<GenericContainer<?>> preStart,
+                                               Consumer<GenericContainer<?>> postStart) {
         return ServiceLoader.load(ContainerInterface.class).findFirst()
-                .map(ContainerInterface::start);
+                .map(ci -> ci.start(preStart, postStart));
     }
 }

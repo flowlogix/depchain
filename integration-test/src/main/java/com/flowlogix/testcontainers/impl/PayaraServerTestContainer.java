@@ -20,6 +20,7 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.DockerImageName;
 import java.util.Optional;
+import java.util.function.Consumer;
 import static java.util.function.Predicate.not;
 
 public class PayaraServerTestContainer implements ContainerInterface {
@@ -27,7 +28,7 @@ public class PayaraServerTestContainer implements ContainerInterface {
 
     @SuppressWarnings("checkstyle:MagicNumber")
     @Override
-    public ContainerInterface start() {
+    public ContainerInterface start(Consumer<GenericContainer<?>> preStart, Consumer<GenericContainer<?>> postStart) {
         if (payara == null && !Boolean.getBoolean("testcontainers.skip")) {
             Optional<String> imageName = Optional.ofNullable(System.getProperty("payara.imageName"))
                     .filter(not(String::isBlank));
@@ -37,6 +38,7 @@ public class PayaraServerTestContainer implements ContainerInterface {
                     .withCreateContainerCmdModifier(cmd -> cmd.getHostConfig()
                             .withMemory((long) (memory * 1024 * 1024 * 1024)))
                     .waitingFor(Wait.forLogMessage(".*Payara Server.*startup time.*\\n", 1));
+            preStart.accept(payara);
             payara.start();
             System.out.printf("# Payara debugger location: %s:%d%n", payara.getHost(), payara.getMappedPort(9009));
             System.setProperty("adminHost", payara.getHost());
@@ -46,6 +48,7 @@ public class PayaraServerTestContainer implements ContainerInterface {
             if (System.getProperty("sslPort", "").isBlank()) {
                 System.setProperty("sslPort", Integer.toString(payara.getMappedPort(8181)));
             }
+            postStart.accept(payara);
         }
         return this;
     }
