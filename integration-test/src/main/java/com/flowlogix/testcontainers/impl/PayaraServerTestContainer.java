@@ -34,13 +34,15 @@ public class PayaraServerTestContainer implements ContainerInterface {
                     .filter(not(String::isBlank));
             double memory = Double.parseDouble(System.getProperty("payara.memory", "1.5"));
             payara = new GenericContainer<>(DockerImageName.parse(imageName.orElse("payara/server-full")))
-                    .withExposedPorts(4848, 8080, 8181, 9009)
+                    .withExposedPorts(4848, 8080, 8181, 9009, 8686, 9010)
                     .withCreateContainerCmdModifier(cmd -> cmd.getHostConfig()
                             .withMemory((long) (memory * 1024 * 1024 * 1024)))
                     .waitingFor(Wait.forLogMessage(".*Payara Server.*startup time.*\\n", 1));
             preStart.accept(payara);
             payara.start();
             System.out.printf("# Payara debugger location: %s:%d%n", payara.getHost(), payara.getMappedPort(9009));
+            System.out.printf("# Payara JMX location: %s:%d,%d%n", payara.getHost(),
+                    payara.getMappedPort(8686), payara.getMappedPort(9010));
             System.setProperty("adminHost", payara.getHost());
             System.setProperty("adminPort", Integer.toString(payara.getMappedPort(4848)));
             System.setProperty("httpPort", Integer.toString(payara.getMappedPort(8080)));
