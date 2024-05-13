@@ -14,6 +14,10 @@
     <description>Dependency Chain for unit tests</description>
     <packaging>pom</packaging>
 
+    <properties>
+        <bytebuddy.version>1.14.15</bytebuddy.version>
+    </properties>
+
     <dependencies>
         <!-- JUnit 5 Basic deps -->
         <dependency>
@@ -28,12 +32,6 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
         </dependency>
-        <!-- Mockito JUnit 5 support -->
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-junit-jupiter</artifactId>
-        </dependency>
-        <!-- Re-runner-->
         <dependency>
             <groupId>io.github.artsok</groupId>
             <artifactId>rerunner-jupiter</artifactId>
@@ -44,6 +42,23 @@
                     <artifactId>*</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <!-- Mockito JUnit 5 support -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>${bytebuddy.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy-agent</artifactId>
+            <version>${bytebuddy.version}</version>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
