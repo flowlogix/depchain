@@ -14,7 +14,7 @@
     <description>Dependency Chain for integration tests</description>
 
     <properties>
-        <arquillian.core.version>1.9.0.Final</arquillian.core.version>
+        <arquillian.core.version>1.9.1.Final</arquillian.core.version>
         <arquillian.protocol.version>10.0.0.Final</arquillian.protocol.version>
     </properties>
 
@@ -84,21 +84,61 @@
             <groupId>org.jboss.arquillian.protocol</groupId>
             <artifactId>arquillian-protocol-servlet-jakarta</artifactId>
             <version>${arquillian.protocol.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.arquillian.test</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.testenricher</groupId>
             <artifactId>arquillian-testenricher-cdi-jakarta</artifactId>
             <version>${arquillian.protocol.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.arquillian.test</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.testenricher</groupId>
             <artifactId>arquillian-testenricher-ejb-jakarta</artifactId>
             <version>${arquillian.protocol.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.arquillian.test</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.testenricher</groupId>
             <artifactId>arquillian-testenricher-resource-jakarta</artifactId>
             <version>${arquillian.protocol.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jboss.arquillian.test</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
