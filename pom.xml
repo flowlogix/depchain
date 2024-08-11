@@ -36,6 +36,7 @@
     <modules>
         <module>unit-test</module>
         <module>integration-test</module>
+        <module>shiro-jakarta</module>
     </modules>
 
     <build>
