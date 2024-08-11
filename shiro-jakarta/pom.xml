@@ -12,7 +12,6 @@
     <artifactId>shiro-jakarta</artifactId>
     <name>Apache Shiro / Jakarta EE dependency chain</name>
     <description>Dependency Chain for integration tests</description>
-    <packaging>pom</packaging>
 
     <properties>
         <shiro.version>2.0.1</shiro.version>

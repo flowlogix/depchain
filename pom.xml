@@ -30,7 +30,8 @@
         <base.directory.property>depchain.basedir</base.directory.property>
         <base.directory.groupId>com.flowlogix.depchain</base.directory.groupId>
         <base.directory.artifactId>depchain</base.directory.artifactId>
-        <checkstyle.supressionsLocation>${depchain.basedir}/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
+        <checkstyle.supressionsLocation>${depchain.basedir}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
+        <jar.skip-if-empty>false</jar.skip-if-empty>
     </properties>
 
     <modules>

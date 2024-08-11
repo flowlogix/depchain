@@ -12,7 +12,6 @@
     <artifactId>unit-test</artifactId>
     <name>Unit Test dependency chain</name>
     <description>Dependency Chain for unit tests</description>
-    <packaging>pom</packaging>
 
     <dependencies>
         <!-- JUnit 5 Basic deps -->
