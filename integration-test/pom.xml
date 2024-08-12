@@ -48,7 +48,6 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.16</version>
         </dependency>
 
         <!-- Base Arquillian Resolver APIs -->
@@ -180,8 +179,8 @@
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>2.0.16</version>
+                <artifactId>slf4j-bom</artifactId>
+                <version>${slf4j.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
