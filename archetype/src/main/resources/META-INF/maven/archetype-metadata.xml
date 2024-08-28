@@ -57,6 +57,8 @@
             <directory></directory>
             <includes>
                 <include>.gitignore</include>
+                <include>lombok.config</include>
+                <include>.jenkins_payara</include>
             </includes>
         </fileSet>
         <fileSet>
