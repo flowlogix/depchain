@@ -15,7 +15,7 @@
     </parent>
 
     <properties>
-        <flowlogix.depchain.version>21</flowlogix.depchain.version>
+        <flowlogix.depchain.version>22</flowlogix.depchain.version>
         <arquillian.graphene.version>3.0.0-alpha.4</arquillian.graphene.version>
         <arquillian.payara.version>3.1</arquillian.payara.version>
         <checkstyle.supressionsLocation>${basedir}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
