@@ -1,0 +1,69 @@
+<archetype-descriptor
+        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 https://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd"
+        name="starter">
+    <requiredProperties>
+        <requiredProperty key="baseType">
+            <validationRegex>infra|payara</validationRegex>
+        </requiredProperty>
+        <requiredProperty key="version">
+            <defaultValue>1.x-SNAPSHOT</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="projectName">
+            <defaultValue>Sample Project</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+    <fileSets>
+        <fileSet filtered="true" packaged="true">
+            <directory>src/main/java</directory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/webapp</directory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true">
+            <directory>src/test/java</directory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
+        <fileSet packaged="false">
+            <directory>src/test/resources</directory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
+        <fileSet packaged="false">
+            <directory>src/checkstyle</directory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>.mvn</directory>
+        </fileSet>
+        <fileSet>
+            <directory></directory>
+            <includes>
+                <include>.gitignore</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>.github</directory>
+            <includes>
+                <include>*.yml</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</archetype-descriptor>
