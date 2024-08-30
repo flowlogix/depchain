@@ -7,7 +7,7 @@ fi
 
 mvn archetype:generate -DarchetypeGroupId=com.flowlogix.archetypes -DarchetypeArtifactId=starter \
   -DarchetypeVersion=23 -DbaseType=payara -DinteractiveMode=false \
-  -DgroupId=com.example -Dpackage=com.sample -DartifactId=$1
+  -DgroupId="com.example" -Dpackage="com.sample" -DartifactId=$1
   
 echo "Upgrading to latest versions"
 mvn -f $1 versions:use-latest-releases versions:update-parent versions:update-properties \
