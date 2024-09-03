@@ -11,11 +11,11 @@
     <parent>
         <groupId>com.flowlogix</groupId>
         <artifactId>${baseType}-pom</artifactId>
-        <version>${base.pom.version}</version>
+        <version>${basePomVersion}</version>
     </parent>
 
     <properties>
-        <flowlogix.depchain.version>${project.version}</flowlogix.depchain.version>
+        <flowlogix.depchain.version>${projectVersion}</flowlogix.depchain.version>
         <arquillian.graphene.version>3.0.0-alpha.4</arquillian.graphene.version>
         <arquillian.payara.version>3.1</arquillian.payara.version>
         <checkstyle.supressionsLocation>${basedir}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
