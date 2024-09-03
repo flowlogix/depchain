@@ -1,0 +1,23 @@
+= Dependency Chains for Maven
+
+== Introduction
+
+Dramatically simplifies using Jakarta EE in your Maven projects.
+Features include automatic unit and integration testing, TestContainers support, and more.
+
+== Quick Start
+
+[source,shell]
+.Generate Example Project in current directory (no prompts)
+----
+mvn archetype:generate -DarchetypeGroupId=com.flowlogix.archetypes -DarchetypeArtifactId=starter \
+-DarchetypeVersion=LATEST -DbaseType=payara -DinteractiveMode=false \
+-DgroupId="com.example" -DartifactId=example -Dpackage="com.example"
+----
+
+[source,shell]
+.Generate Example Project in current directory interactively
+----
+mvn archetype:generate -DarchetypeGroupId=com.flowlogix.archetypes -DarchetypeArtifactId=starter \
+-DarchetypeVersion=LATEST
+----
