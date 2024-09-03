@@ -51,14 +51,12 @@
             </includes>
         </fileSet>
         <fileSet>
-            <directory>.mvn</directory>
-        </fileSet>
-        <fileSet>
             <directory></directory>
             <includes>
                 <include>.gitignore</include>
                 <include>lombok.config</include>
                 <include>.jenkins_payara</include>
+                <include>.mvn/.empty</include>
             </includes>
         </fileSet>
         <fileSet>
