@@ -26,7 +26,7 @@
     </parent>
 
     <properties>
-        <base.pom.version>27</base.pom.version>
+        <base.pom.version>28</base.pom.version>
         <maven.compiler.release>11</maven.compiler.release>
         <base.directory.property>depchain.basedir</base.directory.property>
         <base.directory.groupId>com.flowlogix.depchain</base.directory.groupId>
