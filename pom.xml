@@ -26,7 +26,6 @@
     </parent>
 
     <properties>
-        <base.pom.version>28</base.pom.version>
         <maven.compiler.release>11</maven.compiler.release>
         <base.directory.property>depchain.basedir</base.directory.property>
         <base.directory.groupId>com.flowlogix.depchain</base.directory.groupId>
@@ -42,17 +41,6 @@
         <module>shiro-jakarta</module>
         <module>archetype</module>
     </modules>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.flowlogix</groupId>
-                <artifactId>infra-pom</artifactId>
-                <version>${base.pom.version}</version>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <resources>

@@ -16,6 +16,11 @@
 
     <properties>
         <archetype.plugin.version>3.2.1</archetype.plugin.version>
+        <base.pom.version>28</base.pom.version>
+        <flowlogix.version>9.0.5</flowlogix.version>
+        <arquillian.graphene.version>3.0.0-alpha.4</arquillian.graphene.version>
+        <arquillian.payara.version>3.1</arquillian.payara.version>
+        <eclipselink.version>4.0.4</eclipselink.version>
     </properties>
 
     <build>
@@ -42,4 +47,37 @@
             </plugin>
         </plugins>
     </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.flowlogix</groupId>
+                <artifactId>infra-pom</artifactId>
+                <version>${base.pom.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>com.flowlogix</groupId>
+                <artifactId>flowlogix-jee</artifactId>
+                <version>${flowlogix.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.graphene</groupId>
+                <artifactId>graphene-webdriver</artifactId>
+                <version>${arquillian.graphene.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>fish.payara.arquillian</groupId>
+                <artifactId>arquillian-payara-server-remote</artifactId>
+                <version>${arquillian.payara.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.persistence</groupId>
+                <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
+                <version>${eclipselink.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

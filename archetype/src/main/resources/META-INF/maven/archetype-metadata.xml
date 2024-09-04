@@ -18,6 +18,21 @@
         <requiredProperty key="basePomVersion">
             <defaultValue>${base.pom.version}</defaultValue>
         </requiredProperty>
+        <requiredProperty key="slf4jVersion">
+            <defaultValue>${slf4j.version}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="flowlogixVersion">
+            <defaultValue>${flowlogix.version}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="arqGrapheneVersion">
+            <defaultValue>${arquillian.graphene.version}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="arqPayaraVersion">
+            <defaultValue>${arquillian.payara.version}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="eclipselinkVersion">
+            <defaultValue>${eclipselink.version}</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="true">
