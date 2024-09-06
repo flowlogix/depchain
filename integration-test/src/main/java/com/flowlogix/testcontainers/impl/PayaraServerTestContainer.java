@@ -29,10 +29,10 @@ public class PayaraServerTestContainer implements ContainerInterface {
     @SuppressWarnings("checkstyle:MagicNumber")
     @Override
     public ContainerInterface start(Consumer<GenericContainer<?>> preStart, Consumer<GenericContainer<?>> postStart) {
-        if (payara == null && !Boolean.getBoolean("testcontainers.skip")) {
-            Optional<String> imageName = Optional.ofNullable(System.getProperty("payara.imageName"))
+        if (payara == null && !Boolean.getBoolean("test.containers.skip")) {
+            Optional<String> imageName = Optional.ofNullable(System.getProperty("payara.image.name"))
                     .filter(not(String::isBlank));
-            double memory = Double.parseDouble(System.getProperty("payara.memory", "1.5"));
+            double memory = Double.parseDouble(System.getProperty("payara.memory.gb", "1.5"));
             payara = new GenericContainer<>(DockerImageName.parse(imageName.orElse("payara/server-full")))
                     .withExposedPorts(4848, 8080, 8181, 9009, 8686, 9010)
                     .withCreateContainerCmdModifier(cmd -> cmd.getHostConfig()
