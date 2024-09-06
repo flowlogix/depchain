@@ -21,6 +21,7 @@
         <arquillian.graphene.version>3.0.0-alpha.4</arquillian.graphene.version>
         <arquillian.payara.version>3.1</arquillian.payara.version>
         <eclipselink.version>4.0.4</eclipselink.version>
+        <maven.cache.extension.version>1.2.0</maven.cache.extension.version>
     </properties>
 
     <build>
@@ -46,6 +47,15 @@
                 </executions>
             </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.extensions</groupId>
+                    <artifactId>maven-build-cache-extension</artifactId>
+                    <version>${maven.cache.extension.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
     <dependencyManagement>

@@ -33,6 +33,9 @@
         <requiredProperty key="eclipselinkVersion">
             <defaultValue>${eclipselink.version}</defaultValue>
         </requiredProperty>
+        <requiredProperty key="cacheExtensionVersion">
+            <defaultValue>${maven.cache.extension.version}</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="true">
@@ -71,13 +74,18 @@
                 <include>*</include>
             </includes>
         </fileSet>
+        <fileSet filtered="true" packaged="false">
+            <directory>.mvn</directory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
         <fileSet>
             <directory></directory>
             <includes>
                 <include>.gitignore</include>
                 <include>lombok.config</include>
                 <include>.jenkins_payara</include>
-                <include>.mvn/.empty</include>
             </includes>
         </fileSet>
         <fileSet>
