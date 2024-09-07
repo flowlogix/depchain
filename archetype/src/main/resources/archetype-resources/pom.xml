@@ -15,11 +15,16 @@
     </parent>
 
     <properties>
+        <!-- Override target java release -->
+        <!-- <maven.compiler.release>23</maven.compiler.release> -->
         <flowlogix.depchain.version>${projectVersion}</flowlogix.depchain.version>
         <arquillian.graphene.version>${arqGrapheneVersion}</arquillian.graphene.version>
         <arquillian.payara.version>${arqPayaraVersion}</arquillian.payara.version>
         <checkstyle.supressionsLocation>${basedir}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
         <checkstyle.headerLocation>${basedir}/src/checkstyle/apache-header.txt</checkstyle.headerLocation>
+        <!-- Turn off maven build cache -->
+        <!-- <maven.build.cache.enabled>false</maven.build.cache.enabled> -->
+        <!-- Turn on console logging for tests -->
         <test.redirect.to.file>false</test.redirect.to.file>
     </properties>
 
