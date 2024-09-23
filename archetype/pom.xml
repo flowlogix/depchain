@@ -19,6 +19,7 @@
         <base.pom.version>30</base.pom.version>
         <flowlogix.version>9.0.5</flowlogix.version>
         <arquillian.graphene.version>3.0.0-alpha.4</arquillian.graphene.version>
+        <selenium.version>4.22.0</selenium.version>
         <arquillian.payara.version>3.1</arquillian.payara.version>
         <eclipselink.version>4.0.4</eclipselink.version>
         <maven.cache.extension.version>1.2.0</maven.cache.extension.version>
@@ -75,6 +76,12 @@
                 <groupId>org.jboss.arquillian.graphene</groupId>
                 <artifactId>graphene-webdriver</artifactId>
                 <version>${arquillian.graphene.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-bom</artifactId>
+                <version>${selenium.version}</version>
                 <type>pom</type>
             </dependency>
             <dependency>
