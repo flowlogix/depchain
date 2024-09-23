@@ -12,7 +12,7 @@ Features include automatic unit and integration testing, TestContainers support,
 ----
 mvn archetype:generate -DarchetypeGroupId=com.flowlogix.archetypes -DarchetypeArtifactId=starter \
 -DarchetypeVersion=LATEST -DbaseType=payara -DinteractiveMode=false \
--DgroupId="com.example" -DartifactId=example -Dpackage="com.example"
+-DgroupId=com.example -DartifactId=example -Dpackage=com.example
 ----
 
 [source,shell]
