@@ -17,7 +17,7 @@
     <properties>
         <archetype.plugin.version>3.2.1</archetype.plugin.version>
         <base.pom.version>31</base.pom.version>
-        <flowlogix.version>9.0.5</flowlogix.version>
+        <flowlogix.version>9.0.6</flowlogix.version>
         <arquillian.graphene.version>3.0.0-alpha.4</arquillian.graphene.version>
         <selenium.version>4.25.0</selenium.version>
         <arquillian.payara.version>3.1</arquillian.payara.version>
