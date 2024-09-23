@@ -12,4 +12,9 @@
         </configuration>
     </container>
     <container qualifier="payara"/>
+    <extension qualifier="webdriver">
+        <property name="browser">${webdriver.browser}</property>
+        <property name="firefoxArguments">-headless</property>
+        <property name="chromeArguments">--ignore-certificate-errors</property>
+    </extension>
 </arquillian>
