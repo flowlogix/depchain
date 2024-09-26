@@ -22,6 +22,8 @@
         <selenium.version>4.25.0</selenium.version>
         <arquillian.payara.version>3.1</arquillian.payara.version>
         <eclipselink.version>4.0.4</eclipselink.version>
+        <maven.executable.version>4.0.0-beta-4</maven.executable.version>
+        <maven.wrapper.version>3.3.2</maven.wrapper.version>
         <maven.cache.extension.version>1.2.0</maven.cache.extension.version>
     </properties>
 
@@ -94,6 +96,17 @@
                 <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
                 <version>${eclipselink.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven</artifactId>
+                <version>${maven.executable.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.wrapper</groupId>
+                <artifactId>maven-wrapper</artifactId>
+                <version>${maven.wrapper.version}</version>
+                <type>pom</type>
             </dependency>
         </dependencies>
     </dependencyManagement>

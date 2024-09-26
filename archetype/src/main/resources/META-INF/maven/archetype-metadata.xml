@@ -39,6 +39,12 @@
         <requiredProperty key="cacheExtensionVersion">
             <defaultValue>${maven.cache.extension.version}</defaultValue>
         </requiredProperty>
+        <requiredProperty key="mavenVersion">
+            <defaultValue>${maven.executable.version}</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="mavenWrapperVersion">
+            <defaultValue>${maven.wrapper.version}</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="true">
@@ -83,12 +89,26 @@
                 <include>*</include>
             </includes>
         </fileSet>
+        <fileSet filtered="true" packaged="false">
+            <directory>.mvn/wrapper</directory>
+            <includes>
+                <include>maven-wrapper.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="false" packaged="false">
+            <directory>.mvn/wrapper</directory>
+            <includes>
+                <include>maven-wrapper.jar</include>
+            </includes>
+        </fileSet>
         <fileSet>
             <directory></directory>
             <includes>
                 <include>.gitignore</include>
                 <include>lombok.config</include>
                 <include>.jenkins_payara</include>
+                <include>mvnw</include>
+                <include>mvnw.cmd</include>
             </includes>
         </fileSet>
         <fileSet>
