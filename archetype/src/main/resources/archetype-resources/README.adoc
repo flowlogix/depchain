@@ -1,0 +1,18 @@
+= README
+
+This project hass been automatically generated from the
+https://github.com/flowlogix/depchain[FlowLogix Depchain Quick Start] archetype.
+
+== Running the sample
+[source,shell]
+----
+./mvnw verify
+----
+
+== Regenerating the project
+To regenerate the project, run the following command:
+[source,shell]
+----
+mvn archetype:generate -DarchetypeGroupId=com.flowlogix.archetypes -DarchetypeArtifactId=starter \
+-DarchetypeVersion=LATEST
+----

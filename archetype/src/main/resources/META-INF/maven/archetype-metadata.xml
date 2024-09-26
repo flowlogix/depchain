@@ -101,15 +101,16 @@
                 <include>maven-wrapper.jar</include>
             </includes>
         </fileSet>
-        <fileSet>
+        <fileSet filtered="false" packaged="false">
             <directory></directory>
             <includes>
-                <include>.gitignore</include>
-                <include>lombok.config</include>
-                <include>.jenkins_payara</include>
-                <include>mvnw</include>
-                <include>mvnw.cmd</include>
+                <include>*</include>
             </includes>
+            <excludes>
+                <exclude>pom.xml</exclude>
+                <exclude>src</exclude>
+                <exclude>.mvn</exclude>
+            </excludes>
         </fileSet>
         <fileSet>
             <directory>.github</directory>
