@@ -16,3 +16,7 @@ javaDirectories.each { it.eachFileRecurse {
         }
     }
 }
+
+if (!request.properties['useShiro'].toBoolean()) {
+    new File(request.getOutputDirectory(), request.getArtifactId() + "/src/main/webapp/WEB-INF/shiro.ini").delete()
+}

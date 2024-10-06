@@ -45,6 +45,9 @@
         <requiredProperty key="mavenWrapperVersion">
             <defaultValue>${maven.wrapper.version}</defaultValue>
         </requiredProperty>
+        <requiredProperty key="useShiro">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="true">

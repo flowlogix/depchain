@@ -78,6 +78,13 @@
             <artifactId>flowlogix-jee</artifactId>
             <version>${flowlogixVersion}</version>
         </dependency>
+#if (${useShiro} == true)
+        <dependency>
+            <groupId>com.flowlogix.depchain</groupId>
+            <artifactId>shiro-jakarta</artifactId>
+            <version>${flowlogix.depchain.version}</version>
+        </dependency>
+#end
     </dependencies>
 
     <dependencyManagement>
