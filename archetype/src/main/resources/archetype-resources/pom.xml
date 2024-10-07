@@ -78,7 +78,11 @@
 
         <dependency>
             <groupId>com.flowlogix</groupId>
+#if (${useLazyModel} == true)
+            <artifactId>flowlogix-datamodel</artifactId>
+#else
             <artifactId>flowlogix-jee</artifactId>
+#end
             <version>${flowlogixVersion}</version>
         </dependency>
 #if (${useShiro} == true)

@@ -57,6 +57,9 @@
         <requiredProperty key="usePrimeFaces">
             <defaultValue>false</defaultValue>
         </requiredProperty>
+        <requiredProperty key="useLazyModel">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="true">
