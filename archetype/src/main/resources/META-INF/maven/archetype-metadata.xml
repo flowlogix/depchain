@@ -9,6 +9,9 @@
         <requiredProperty key="version">
             <defaultValue>1.x-SNAPSHOT</defaultValue>
         </requiredProperty>
+        <requiredProperty key="packagingType">
+            <defaultValue>jar</defaultValue>
+        </requiredProperty>
         <requiredProperty key="projectName">
             <defaultValue>Sample Project</defaultValue>
         </requiredProperty>
@@ -48,6 +51,12 @@
         <requiredProperty key="useShiro">
             <defaultValue>false</defaultValue>
         </requiredProperty>
+        <requiredProperty key="useOmniFaces">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="usePrimeFaces">
+            <defaultValue>false</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="true">
@@ -56,13 +65,13 @@
                 <include>*</include>
             </includes>
         </fileSet>
-        <fileSet>
+        <fileSet filtered="true">
             <directory>src/main/resources</directory>
             <includes>
                 <include>**/*</include>
             </includes>
         </fileSet>
-        <fileSet>
+        <fileSet filtered="true">
             <directory>src/main/webapp</directory>
             <includes>
                 <include>**/*</include>

@@ -5,6 +5,9 @@
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
+#if (${packagingType} != 'jar')
+    <packaging>${packagingType}</packaging>
+#end
 
     <name>${projectName}</name>
 
@@ -85,14 +88,27 @@
             <version>${flowlogix.depchain.version}</version>
         </dependency>
 #end
+#if (${useOmniFaces} == true)
+        <dependency>
+            <groupId>org.omnifaces</groupId>
+            <artifactId>omnifaces</artifactId>
+        </dependency>
+#end
+#if (${usePrimeFaces} == true)
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <classifier>jakarta</classifier>
+        </dependency>
+#end
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-bom</artifactId>
-                <version>${slf4jVersion}</version>
+                <groupId>com.flowlogix</groupId>
+                <artifactId>flowlogix-bom</artifactId>
+                <version>${flowlogixVersion}</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
