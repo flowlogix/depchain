@@ -21,6 +21,7 @@
         <!-- Override target java release -->
         <!-- <maven.compiler.release>23</maven.compiler.release> -->
         <flowlogix.depchain.version>${projectVersion}</flowlogix.depchain.version>
+        <flowlogix.version>${flowlogixVersion}</flowlogix.version>
         <arquillian.graphene.version>${arqGrapheneVersion}</arquillian.graphene.version>
         <arquillian.payara.version>${arqPayaraVersion}</arquillian.payara.version>
         <checkstyle.supressionsLocation>${basedir}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
@@ -83,7 +84,7 @@
 #else
             <artifactId>flowlogix-jee</artifactId>
 #end
-            <version>${flowlogixVersion}</version>
+            <version>${flowlogix.version}</version>
         </dependency>
 #if (${useShiro} == true)
         <dependency>
@@ -112,7 +113,7 @@
             <dependency>
                 <groupId>com.flowlogix</groupId>
                 <artifactId>flowlogix-bom</artifactId>
-                <version>${flowlogixVersion}</version>
+                <version>${flowlogix.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
