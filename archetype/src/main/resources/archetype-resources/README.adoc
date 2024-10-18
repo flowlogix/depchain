@@ -1,7 +1,8 @@
 = README
 
-This project hass been automatically generated from the
-https://github.com/flowlogix/depchain[FlowLogix Depchain Quick Start] archetype.
+This project has been automatically generated using the
+https://start.flowlogix.com[FlowLogix Quick Start] tool from the
+https://github.com/flowlogix/depchain[FlowLogix Depchain Starter] archetype.
 
 == Running the sample
 [source,shell]

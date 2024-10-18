@@ -3,9 +3,11 @@
 == Introduction
 
 Dramatically simplifies using Jakarta EE in your Maven projects.
-Features include automatic unit and integration testing, TestContainers support, and more.
+Features include automatic unit and integration testing, TestContainers support, and much more.
 
 == Quick Start
+
+Use the https://start.flowlogix.com[FlowLogix Quick Start] web-based tool to download the starter project with one click, or use it to generate a maven or curl command line to run in the terminal.
 
 [source,shell]
 .Generate Example Project in current directory (no prompts)
