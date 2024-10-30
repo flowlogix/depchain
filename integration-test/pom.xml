@@ -43,7 +43,7 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit4-mock</artifactId>
-            <version>3.16.0</version>
+            <version>3.16.1</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
