@@ -39,6 +39,10 @@ public class PayaraServerTestContainer implements ContainerInterface {
                             .withMemory((long) (memory * 1024 * 1024 * 1024)))
                     .waitingFor(Wait.forLogMessage(".*Payara Server.*startup time.*\\n", 1));
             preStart.accept(payara);
+            if (Boolean.getBoolean("test.containers.jdk.turn-off-sve")) {
+                payara.getEnvMap().compute("JAVA_TOOL_OPTIONS",
+                        (k, v) ->  v == null ? "-XX:UseSVE=0" : v + " -XX:UseSVE=0");
+            }
             payara.start();
             System.out.printf("# Payara debugger location: %s:%d%n", payara.getHost(), payara.getMappedPort(9009));
             System.out.printf("# Payara JMX location: %s:%d,%d%n", payara.getHost(),
