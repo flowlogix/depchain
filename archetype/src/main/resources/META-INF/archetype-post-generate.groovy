@@ -12,7 +12,16 @@ javaDirectories << new File(request.getOutputDirectory(), request.getArtifactId(
 javaDirectories.each { it.eachFileRecurse {
     javaFile ->
         if (javaFile.isFile() && javaFile.getName().endsWith(".java")) {
-            javaFile.write(headerText + javaFile.text)
+            def javaFileText = javaFile.text
+            switch (request.properties['packagingType']) {
+                case "war":
+                    javaFileText = javaFileText.replace('JavaArchive', 'WebArchive')
+                    break
+                case "ear":
+                    javaFileText = javaFileText.replace('JavaArchive', 'EnterpriseArchive')
+                    break
+            }
+            javaFile.write(headerText + javaFileText)
         }
     }
 }
