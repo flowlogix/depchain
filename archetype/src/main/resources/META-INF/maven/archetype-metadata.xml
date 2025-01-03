@@ -105,6 +105,12 @@
             </includes>
         </fileSet>
         <fileSet filtered="true" packaged="false">
+            <directory>.idea</directory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="false">
             <directory>.mvn/wrapper</directory>
             <includes>
                 <include>maven-wrapper.properties</include>
@@ -125,6 +131,7 @@
                 <exclude>pom.xml</exclude>
                 <exclude>src</exclude>
                 <exclude>.mvn</exclude>
+                <exclude>.idea</exclude>
             </excludes>
         </fileSet>
         <fileSet>
