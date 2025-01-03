@@ -29,3 +29,7 @@ javaDirectories.each { it.eachFileRecurse {
 if (!request.properties['useShiro'].toBoolean()) {
     new File(request.getOutputDirectory(), request.getArtifactId() + "/src/main/webapp/WEB-INF/shiro.ini").delete()
 }
+
+if (request.properties['packagingType'] != "war") {
+    new File(request.getOutputDirectory(), request.getArtifactId() + "/src/main/webapp").deleteDir()
+}

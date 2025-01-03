@@ -117,12 +117,6 @@
             </includes>
         </fileSet>
         <fileSet filtered="false" packaged="false">
-            <directory>.mvn/wrapper</directory>
-            <includes>
-                <include>maven-wrapper.jar</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="false" packaged="false">
             <directory></directory>
             <includes>
                 <include>*</include>
