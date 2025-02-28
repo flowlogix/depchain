@@ -16,5 +16,7 @@
         <property name="browser">${webdriver.browser}</property>
         <property name="firefoxArguments">-headless</property>
         <property name="chromeArguments">--ignore-certificate-errors</property>
+        <property name="enableBidi">true</property>
+<!--    <property name="unhandledPromptBehaviour">ignore</property>  -->
     </extension>
 </arquillian>
