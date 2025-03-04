@@ -85,6 +85,9 @@
             <artifactId>flowlogix-jee</artifactId>
 #end
             <version>${flowlogix.version}</version>
+#if (${useOmniFaces} == false)
+            <scope>test</scope>
+#end
         </dependency>
 #if (${useShiro} == true)
         <dependency>
