@@ -60,6 +60,9 @@
         <requiredProperty key="useLazyModel">
             <defaultValue>false</defaultValue>
         </requiredProperty>
+        <requiredProperty key="useMavenCache">
+            <defaultValue>true</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="true">

@@ -26,8 +26,12 @@
         <arquillian.payara.version>${arqPayaraVersion}</arquillian.payara.version>
         <checkstyle.supressionsLocation>${basedir}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
         <checkstyle.headerLocation>${basedir}/src/checkstyle/apache-header.txt</checkstyle.headerLocation>
+#if (${useMavenCache} == true)
         <!-- Turn off maven build cache -->
         <!-- <maven.build.cache.enabled>false</maven.build.cache.enabled> -->
+#else
+        <maven.build.cache.enabled>false</maven.build.cache.enabled>
+#end
         <!-- Turn on console logging for tests -->
         <test.redirect.to.file>false</test.redirect.to.file>
     </properties>
