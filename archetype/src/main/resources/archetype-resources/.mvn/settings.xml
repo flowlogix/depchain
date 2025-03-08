@@ -5,7 +5,6 @@
     <activeProfiles>
         <activeProfile>jakarta-ee-version-override</activeProfile>
         <activeProfile>payara-arquillian-version-override</activeProfile>
-        <activeProfile>shrinkwrap-resolver-version-override</activeProfile>
         <activeProfile>hope-repository</activeProfile>
     </activeProfiles>
 
@@ -20,12 +19,6 @@
             <id>payara-arquillian-version-override</id>
             <properties>
                 <arquillian.payara5.version>2.5-lp-apr13</arquillian.payara5.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>shrinkwrap-resolver-version-override</id>
-            <properties>
-                <shrinkwrap.resolver.version>3.3.3-2</shrinkwrap.resolver.version>
             </properties>
         </profile>
 
