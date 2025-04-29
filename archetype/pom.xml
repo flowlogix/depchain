@@ -22,7 +22,7 @@
         <selenium.version>4.31.0</selenium.version>
         <arquillian.payara.version>3.1</arquillian.payara.version>
         <eclipselink.version>4.0.6</eclipselink.version>
-        <maven.executable.version>4.0.0-rc-2</maven.executable.version>
+        <maven.executable.version>4.0.0-rc-3</maven.executable.version>
         <maven.wrapper.version>3.3.2</maven.wrapper.version>
         <maven.cache.extension.version>1.2.0</maven.cache.extension.version>
     </properties>
