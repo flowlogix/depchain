@@ -5,4 +5,9 @@
         <artifactId>maven-build-cache-extension</artifactId>
         <version>${cacheExtensionVersion}</version>
     </extension>
+    <extension>
+        <groupId>eu.maveniverse.maven.njord</groupId>
+        <artifactId>extension</artifactId>
+        <version>${njordExtensionVersion}</version>
+    </extension>
 </extensions>

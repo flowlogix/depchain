@@ -42,6 +42,9 @@
         <requiredProperty key="cacheExtensionVersion">
             <defaultValue>${maven.cache.extension.version}</defaultValue>
         </requiredProperty>
+        <requiredProperty key="njordExtensionVersion">
+            <defaultValue>${maven.njord.extension.version}</defaultValue>
+        </requiredProperty>
         <requiredProperty key="mavenVersion">
             <defaultValue>${maven.executable.version}</defaultValue>
         </requiredProperty>
