@@ -25,7 +25,6 @@
         <maven.executable.version>4.0.0-rc-3</maven.executable.version>
         <maven.wrapper.version>3.3.2</maven.wrapper.version>
         <maven.cache.extension.version>1.2.0</maven.cache.extension.version>
-        <maven.njord.extension.version>0.5.4</maven.njord.extension.version>
     </properties>
 
     <build>
@@ -57,11 +56,6 @@
                     <groupId>org.apache.maven.extensions</groupId>
                     <artifactId>maven-build-cache-extension</artifactId>
                     <version>${maven.cache.extension.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>eu.maveniverse.maven.njord</groupId>
-                    <artifactId>extension</artifactId>
-                    <version>${maven.njord.extension.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
