@@ -108,15 +108,15 @@
             </includes>
         </fileSet>
         <fileSet filtered="true" packaged="false">
-            <directory>.idea</directory>
-            <includes>
-                <include>*</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="true" packaged="false">
             <directory>.mvn/wrapper</directory>
             <includes>
                 <include>maven-wrapper.properties</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="false">
+            <directory>.idea</directory>
+            <includes>
+                <include>*</include>
             </includes>
         </fileSet>
         <fileSet filtered="false" packaged="false">
@@ -133,6 +133,12 @@
         </fileSet>
         <fileSet>
             <directory>.github</directory>
+            <includes>
+                <include>*.yml</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>.github/workflows</directory>
             <includes>
                 <include>*.yml</include>
             </includes>
