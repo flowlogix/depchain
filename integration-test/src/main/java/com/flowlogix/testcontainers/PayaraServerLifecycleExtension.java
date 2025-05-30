@@ -31,7 +31,7 @@ import static org.jboss.arquillian.junit5.ArquillianExtension.RUNNING_INSIDE_ARQ
  *
  * @author lprimak
  */
-public class PayaraServerLifecycleExtension implements BeforeAllCallback, ExtensionContext.Store.CloseableResource {
+public class PayaraServerLifecycleExtension implements BeforeAllCallback, AutoCloseable {
     private Optional<ContainerInterface> payaraTC = Optional.empty();
 
     @Override
@@ -52,7 +52,7 @@ public class PayaraServerLifecycleExtension implements BeforeAllCallback, Extens
     }
 
     @Override
-    public void close() throws Throwable {
+    public void close() {
         payaraTC.ifPresent(ContainerInterface::stop);
     }
 }
