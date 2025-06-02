@@ -54,6 +54,7 @@
         <dependency>
             <groupId>org.jboss.shrinkwrap.resolver</groupId>
             <artifactId>shrinkwrap-resolver-depchain</artifactId>
+            <optional>false</optional>
             <type>pom</type>
         </dependency>
         <dependency>
