@@ -14,7 +14,7 @@
     <description>Dependency Chain for integration tests</description>
 
     <properties>
-        <arquillian.core.version>1.9.5.Final</arquillian.core.version>
+        <arquillian.core.version>1.10.0.Final</arquillian.core.version>
         <arquillian.protocol.version>10.0.0.Final</arquillian.protocol.version>
     </properties>
 
