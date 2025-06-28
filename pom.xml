@@ -27,10 +27,7 @@
 
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
-        <base.directory.property>depchain.basedir</base.directory.property>
-        <base.directory.groupId>com.flowlogix.depchain</base.directory.groupId>
-        <base.directory.artifactId>depchain</base.directory.artifactId>
-        <checkstyle.supressionsLocation>${depchain.basedir}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
+        <checkstyle.supressionsLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
         <jar.skip-if-empty>false</jar.skip-if-empty>
         <slf4j.version>2.0.17</slf4j.version>
         <junit.jupiter.version>5.13.2</junit.jupiter.version>
@@ -60,15 +57,5 @@
                 </excludes>
             </resource>
         </resources>
-
-        <plugins>
-            <plugin>
-                <groupId>org.commonjava.maven.plugins</groupId>
-                <artifactId>directory-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-            </plugin>
-        </plugins>
     </build>
 </project>

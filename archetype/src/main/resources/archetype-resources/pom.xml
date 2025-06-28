@@ -24,8 +24,8 @@
         <flowlogix.version>${flowlogixVersion}</flowlogix.version>
         <arquillian.graphene.version>${arqGrapheneVersion}</arquillian.graphene.version>
         <arquillian.payara.version>${arqPayaraVersion}</arquillian.payara.version>
-        <checkstyle.supressionsLocation>${basedir}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
-        <checkstyle.headerLocation>${basedir}/src/checkstyle/apache-header.txt</checkstyle.headerLocation>
+        <checkstyle.supressionsLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
+        <checkstyle.headerLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/apache-header.txt</checkstyle.headerLocation>
 #if (${useMavenCache} == true)
         <!-- Turn off maven build cache -->
         <!-- <maven.build.cache.enabled>false</maven.build.cache.enabled> -->
