@@ -19,7 +19,7 @@
         <base.pom.version>58</base.pom.version>
         <flowlogix.version>9.0.10</flowlogix.version>
         <arquillian.graphene.version>3.0.0-alpha.4</arquillian.graphene.version>
-        <selenium.version>4.33.0</selenium.version>
+        <selenium.version>4.34.0</selenium.version>
         <arquillian.payara.version>3.1</arquillian.payara.version>
         <eclipselink.version>4.0.7</eclipselink.version>
         <maven.executable.version>4.0.0-rc-4</maven.executable.version>
