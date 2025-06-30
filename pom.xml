@@ -27,7 +27,7 @@
 
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
-        <checkstyle.supressionsLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/suppressions.xml</checkstyle.supressionsLocation>
+        <checkstyle.suppressionsLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/suppressions.xml</checkstyle.suppressionsLocation>
         <jar.skip-if-empty>false</jar.skip-if-empty>
         <slf4j.version>2.0.17</slf4j.version>
         <junit.jupiter.version>5.13.2</junit.jupiter.version>
