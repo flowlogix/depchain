@@ -3,7 +3,8 @@
 == Introduction
 
 Dramatically simplifies using Jakarta EE in your Maven projects.
-Features include automatic unit and integration testing, TestContainers support, and much more.
+Features include automatic unit and integration testing, TestContainers support, and much more. +
+Please see https://docs.flowlogix.com/depchains[documentation].
 
 == Quick Start
 
