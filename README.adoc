@@ -7,6 +7,11 @@ Supports Maven 4 and 3.
 Features include automatic unit and integration testing, TestContainers support, and much more. +
 Please see https://docs.flowlogix.com/depchains[documentation].
 
+== Usage
+In conjunction with https://github.com/flowlogix/base-pom[Base POM], this project provides a set of Maven dependencies to quickly get started with Jakarta EE projects. Archetype is available to generate a starter project with all the necessary dependencies and configuration.
+
+Remove 1000s of lines of boilerplate configuration, and override the provided properties to configure your project if needed. Dependency Chains is designed to stay out of your way, while providing a solid foundation for your Jakarta EE projects. Anything that's not necessary for your project can be opted out or overridden.
+
 == Quick Start
 
 Use the https://start.flowlogix.com[FlowLogix Quick Start] web-based tool to download the starter project with one click, or use it to generate a maven or curl command line to run in the terminal.
