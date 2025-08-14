@@ -4,7 +4,7 @@
                       http://maven.apache.org/xsd/settings-1.0.0.xsd">
     <activeProfiles>
         <activeProfile>jakarta-ee-version-override</activeProfile>
-        <activeProfile>payara-arquillian-version-override</activeProfile>
+        <activeProfile>graphene-version-override</activeProfile>
         <activeProfile>hope-repository</activeProfile>
     </activeProfiles>
 
@@ -16,9 +16,9 @@
             </properties>
         </profile>
         <profile>
-            <id>payara-arquillian-version-override</id>
+            <id>graphene-version-override</id>
             <properties>
-                <arquillian.payara5.version>2.5-lp-apr13</arquillian.payara5.version>
+                <arquillian.graphene.version>3.0.0-20250814</arquillian.graphene.version>
             </properties>
         </profile>
 
