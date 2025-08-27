@@ -13,7 +13,7 @@
     <input>
         <global>
             <glob>
-                {*.java,*.groovy,*.yaml,*.svcd,*.proto,*assembly.xml,assembly*.xml,*logback.xml,*.vm,*.ini,*.jks,*.properties,*.sh,*.bat}
+                {*.java,*.groovy,*.yaml,*.proto,*.ini,*.properties,*.xhtml,*.js,*.css,*.scss,*.html,*.xml,*.json}
             </glob>
             <includes>
                 <include>src/</include>
