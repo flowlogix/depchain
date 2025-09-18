@@ -19,7 +19,7 @@
 
     <properties>
         <!-- Override target java release -->
-        <!-- <maven.compiler.release>24</maven.compiler.release> -->
+        <!-- <maven.compiler.release>25</maven.compiler.release> -->
         <flowlogix.depchain.version>${projectVersion}</flowlogix.depchain.version>
         <flowlogix.version>${flowlogixVersion}</flowlogix.version>
         <arquillian.graphene.version>${arqGrapheneVersion}</arquillian.graphene.version>
