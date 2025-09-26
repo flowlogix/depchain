@@ -4,10 +4,12 @@ mavenExecutable.setExecutable(true, false)
 mavenExecutable = new File(request.getOutputDirectory(), request.getArtifactId() + "/mvnw.cmd")
 mavenExecutable.setExecutable(true, false)
 
+var srcMainDirectory = new File(request.getOutputDirectory(), request.getArtifactId() + "/src/main/java")
+srcMainDirectory.mkdirs()
 // prepend apache-header.txt to all Java files
 def headerText = new File(request.getOutputDirectory(), request.getArtifactId() + "/src/checkstyle/apache-header.txt").text
 def javaDirectories = []
-javaDirectories << new File(request.getOutputDirectory(), request.getArtifactId() + "/src/main/java")
+javaDirectories << srcMainDirectory
 javaDirectories << new File(request.getOutputDirectory(), request.getArtifactId() + "/src/test/java")
 javaDirectories.each { it.eachFileRecurse {
     javaFile ->
