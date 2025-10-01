@@ -41,12 +41,12 @@ public class PayaraServerLifecycleExtension implements BeforeAllCallback, AutoCl
                 .getConfigurationParameter(RUNNING_INSIDE_ARQUILLIAN).orElse("false"));
         if (!inContainer) {
             Consumer<GenericContainer<?>> preStart = context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL)
-                    .getOrComputeIfAbsent(PRE_START_PROPERTY, key -> container -> { }, Consumer.class);
+                    .computeIfAbsent(PRE_START_PROPERTY, key -> container -> { }, Consumer.class);
             Consumer<GenericContainer<?>> postStart = context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL)
-                    .getOrComputeIfAbsent(POST_START_PROPERTY, key -> container -> { }, Consumer.class);
+                    .computeIfAbsent(POST_START_PROPERTY, key -> container -> { }, Consumer.class);
             payaraTC = (Optional<ContainerInterface>)
                     context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL)
-                            .getOrComputeIfAbsent(this.getClass().getName(),
+                            .computeIfAbsent(this.getClass().getName(),
                                     key -> ContainerInterface.create(preStart, postStart));
         }
     }
