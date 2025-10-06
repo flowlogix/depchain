@@ -95,6 +95,12 @@
                 <include>**/*</include>
             </includes>
         </fileSet>
+        <fileSet filtered="true" packaged="true">
+            <directory>src/demo/java</directory>
+            <includes>
+                <include>*</include>
+            </includes>
+        </fileSet>
         <fileSet packaged="false">
             <directory>src/checkstyle</directory>
             <includes>
