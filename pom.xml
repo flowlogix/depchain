@@ -22,7 +22,7 @@
     <parent>
         <groupId>com.flowlogix</groupId>
         <artifactId>infra-pom</artifactId>
-        <version>74</version>
+        <version>75</version>
     </parent>
 
     <properties>
