@@ -133,4 +133,26 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+#if (${useCodeCoverage} == true)
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>${packageInPathFormat}/**</include>
+                    </includes>
+                    <excludes>
+                        <exclude>${packageInPathFormat}/*Test</exclude>
+                        <exclude>${packageInPathFormat}/*Test$*</exclude>
+                        <exclude>${packageInPathFormat}/*IT</exclude>
+                        <exclude>${packageInPathFormat}/*IT$*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+#end
 </project>

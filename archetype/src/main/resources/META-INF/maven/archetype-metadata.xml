@@ -63,6 +63,9 @@
         <requiredProperty key="useMavenCache">
             <defaultValue>true</defaultValue>
         </requiredProperty>
+        <requiredProperty key="useCodeCoverage">
+            <defaultValue>true</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="true">
