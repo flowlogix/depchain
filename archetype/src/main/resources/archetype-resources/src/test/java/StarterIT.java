@@ -1,4 +1,4 @@
-package $package;
+package ${package}.its;
 
 import com.flowlogix.test.PayaraServerLifecycle;
 import com.flowlogix.util.ShrinkWrapManipulator;

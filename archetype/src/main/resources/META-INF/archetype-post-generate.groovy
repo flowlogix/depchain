@@ -9,8 +9,13 @@ def headerText = new File(request.getOutputDirectory(), request.getArtifactId() 
 def javaDirectories = []
 javaDirectories << new File(request.getOutputDirectory(), request.getArtifactId() + "/src/main/java")
 javaDirectories << new File(request.getOutputDirectory(), request.getArtifactId() + "/src/test/java")
+
+var integrationPackageFile = new File(request.getOutputDirectory(),
+        request.getArtifactId() + "/src/test/java/" + request.package.replace('.', '/') + "/its")
+integrationPackageFile.mkdirs()
+
 javaDirectories.each { it.eachFileRecurse {
-    javaFile ->
+    File javaFile ->
         if (javaFile.isFile() && javaFile.getName().endsWith(".java")) {
             def javaFileText = javaFile.text
             switch (request.properties['packagingType']) {
@@ -22,6 +27,10 @@ javaDirectories.each { it.eachFileRecurse {
                     break
             }
             javaFile.write(headerText + javaFileText)
+
+            if (javaFile.getName().endsWith("IT.java")) {
+                javaFile.renameTo(integrationPackageFile.getPath() + "/" + javaFile.getName())
+            }
         }
     }
 }
