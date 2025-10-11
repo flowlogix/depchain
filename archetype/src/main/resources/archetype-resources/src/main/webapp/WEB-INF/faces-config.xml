@@ -10,6 +10,7 @@
         </exception-handler-factory>
 #end
 #if (${useOmniFaces} == true)
+        <exception-handler-factory>org.omnifaces.exceptionhandler.FullAjaxExceptionHandlerFactory</exception-handler-factory>
         <!-- order is important, the following line needs to appear last -->
         <exception-handler-factory>org.omnifaces.exceptionhandler.ViewExpiredExceptionHandlerFactory</exception-handler-factory>
 #end
