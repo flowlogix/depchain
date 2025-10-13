@@ -8,4 +8,5 @@
     <suppress checks="JavadocPackage" files=".*.java$"/>
     <suppress checks="Header" files=".*.java$"/>
     <suppress checks=".*" files="target/generated-sources/.*"/>
+    <suppress checks=".*" files="target/generated-test-sources/.*"/>
 </suppressions>
