@@ -5,7 +5,6 @@
     <activeProfiles>
         <activeProfile>jakarta-ee-version-override</activeProfile>
         <activeProfile>graphene-version-override</activeProfile>
-        <activeProfile>maven-war-plugin-version-override</activeProfile>
         <activeProfile>flowlogix-repository</activeProfile>
     </activeProfiles>
 
@@ -20,12 +19,6 @@
             <id>graphene-version-override</id>
             <properties>
                 <arquillian.graphene.version>3.0.0-20250814</arquillian.graphene.version>
-            </properties>
-        </profile>
-        <profile>
-            <id>maven-war-plugin-version-override</id>
-            <properties>
-                <maven.war.plugin.version>3.4.1-20250923</maven.war.plugin.version>
             </properties>
         </profile>
 
