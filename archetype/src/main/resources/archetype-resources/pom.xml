@@ -22,7 +22,9 @@
         <!-- <maven.compiler.release>25</maven.compiler.release> -->
         <flowlogix.depchain.version>${projectVersion}</flowlogix.depchain.version>
         <flowlogix.version>${flowlogixVersion}</flowlogix.version>
+#if (${useArquillianGraphene} == true)
         <arquillian.graphene.version>${arqGrapheneVersion}</arquillian.graphene.version>
+#end
         <arquillian.payara.version>${arqPayaraVersion}</arquillian.payara.version>
         <checkstyle.suppressionsLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/suppressions.xml</checkstyle.suppressionsLocation>
         <checkstyle.headerLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/apache-header.txt</checkstyle.headerLocation>
@@ -56,6 +58,7 @@
             <version>${flowlogix.depchain.version}</version>
             <scope>test</scope>
         </dependency>
+#if (${useArquillianGraphene} == true)
         <dependency>
             <groupId>org.jboss.arquillian.graphene</groupId>
             <artifactId>graphene-webdriver</artifactId>
@@ -63,6 +66,7 @@
             <scope>test</scope>
             <type>pom</type>
         </dependency>
+#end
         <dependency>
             <groupId>fish.payara.arquillian</groupId>
             <artifactId>arquillian-payara-server-remote</artifactId>
@@ -124,6 +128,7 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+#if (${useArquillianGraphene} == true)
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-bom</artifactId>
@@ -131,10 +136,11 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+#end
         </dependencies>
     </dependencyManagement>
-#if (${useCodeCoverage} == true)
 
+#if (${useCodeCoverage} == true)
     <build>
         <plugins>
             <plugin>

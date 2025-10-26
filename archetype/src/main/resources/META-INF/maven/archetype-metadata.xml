@@ -66,6 +66,9 @@
         <requiredProperty key="useCodeCoverage">
             <defaultValue>true</defaultValue>
         </requiredProperty>
+        <requiredProperty key="useArquillianGraphene">
+            <defaultValue>true</defaultValue>
+        </requiredProperty>
     </requiredProperties>
     <fileSets>
         <fileSet filtered="true" packaged="true">
