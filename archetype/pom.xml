@@ -24,7 +24,7 @@
         <eclipselink.version>4.0.8</eclipselink.version>
         <maven.executable.version>4.0.0-rc-4</maven.executable.version>
         <maven.wrapper.version>3.3.4</maven.wrapper.version>
-        <maven.cache.extension.version>1.2.0</maven.cache.extension.version>
+        <maven.cache.extension.version>1.2.1</maven.cache.extension.version>
     </properties>
 
     <build>
