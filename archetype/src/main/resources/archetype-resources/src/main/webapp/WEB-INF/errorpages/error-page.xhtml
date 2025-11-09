@@ -5,7 +5,6 @@
       xmlns:ui="jakarta.faces.facelets"
       xmlns:of="http://omnifaces.org/functions">
     <h:head>
-        <meta charset="UTF-8"/>
         <ui:param name="statusCode" value="#{requestScope['jakarta.servlet.error.status_code']}"/>
         <ui:param name="devMode" value="#{facesContext.isProjectStage('Development')}"/>
         <title>Error #{statusCode}</title>
