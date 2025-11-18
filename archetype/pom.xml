@@ -21,7 +21,7 @@
         <arquillian.graphene.version>3.0.0-20250814</arquillian.graphene.version>
         <selenium.version>4.38.0</selenium.version>
         <arquillian.payara.version>3.1</arquillian.payara.version>
-        <eclipselink.version>4.0.8</eclipselink.version>
+        <eclipselink.version>5.0.0-B11</eclipselink.version>
         <maven.executable.version>4.0.0-rc-5</maven.executable.version>
         <maven.wrapper.version>3.3.4</maven.wrapper.version>
         <maven.cache.extension.version>1.2.1</maven.cache.extension.version>
