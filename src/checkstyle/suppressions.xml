@@ -24,5 +24,4 @@
     <!-- do not require package-info.java -->
     <suppress checks="JavadocPackage" files="com.flowlogix.testcontainers.*"/>
     <suppress checks="JavadocPackage" files="com.flowlogix.test.*"/>
-    <suppress checks="LineLength" files="src/main/resources/archetype-resources/.mvn/wrapper/maven-wrapper.properties"/>
 </suppressions>
