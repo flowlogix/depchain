@@ -99,7 +99,7 @@
         <dependency>
             <groupId>org.omnifaces</groupId>
             <artifactId>omnifaces</artifactId>
-            <version>5.0-M5</version>
+            <version>5.0-M6</version>
         </dependency>
     </dependencies>
 
