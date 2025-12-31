@@ -11,7 +11,7 @@
 
     <artifactId>shiro-jakarta</artifactId>
     <name>Apache Shiro / Jakarta EE dependency chain</name>
-    <description>Dependency Chain for integration tests</description>
+    <description>Dependency Chain for Apache Shiro and Jakarta EE</description>
 
     <properties>
         <shiro.version>2.0.6</shiro.version>
