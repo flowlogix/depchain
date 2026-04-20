@@ -41,6 +41,12 @@
             <artifactId>shrinkwrap-resolver-depchain</artifactId>
             <optional>false</optional>
             <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.errorprone</groupId>
+                    <artifactId>error_prone_annotations</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
