@@ -1,1 +1,1 @@
-com.flowlogix.testcontainers.PayaraServerTestNGLifecycleExtension
+com.flowlogix.testcontainers.AppServerTestNGLifecycleExtension

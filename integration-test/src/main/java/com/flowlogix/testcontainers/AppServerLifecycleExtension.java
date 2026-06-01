@@ -26,13 +26,13 @@ import static org.jboss.arquillian.junit5.ArquillianExtension.RUNNING_INSIDE_ARQ
 
 /**
  * For use with JUnit 5
- * {@code @ExtendWith(PayaraServerLifecycleExtension.class)}
+ * {@code @ExtendWith(AppServerLifecycleExtension.class)}
  * Needs to go before ArquillianExtension for all test classes
  *
  * @author lprimak
  */
-public class PayaraServerLifecycleExtension implements BeforeAllCallback, AutoCloseable {
-    private Optional<ContainerInterface> payaraTC = Optional.empty();
+public class AppServerLifecycleExtension implements BeforeAllCallback, AutoCloseable {
+    private Optional<ContainerInterface> serverTC = Optional.empty();
 
     @Override
     @SuppressWarnings("unchecked")
@@ -44,7 +44,7 @@ public class PayaraServerLifecycleExtension implements BeforeAllCallback, AutoCl
                     .computeIfAbsent(PRE_START_PROPERTY, key -> container -> { }, Consumer.class);
             Consumer<GenericContainer<?>> postStart = context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL)
                     .computeIfAbsent(POST_START_PROPERTY, key -> container -> { }, Consumer.class);
-            payaraTC = (Optional<ContainerInterface>)
+            serverTC = (Optional<ContainerInterface>)
                     context.getRoot().getStore(ExtensionContext.Namespace.GLOBAL)
                             .computeIfAbsent(this.getClass().getName(),
                                     key -> ContainerInterface.create(preStart, postStart));
@@ -53,6 +53,6 @@ public class PayaraServerLifecycleExtension implements BeforeAllCallback, AutoCl
 
     @Override
     public void close() {
-        payaraTC.ifPresent(ContainerInterface::stop);
+        serverTC.ifPresent(ContainerInterface::stop);
     }
 }

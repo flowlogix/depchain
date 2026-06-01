@@ -26,18 +26,17 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation to activate Payara server lifecycle management for the annotated test class.
+ * Annotation to activate Payara or GlassFish server lifecycle management for the annotated test class.
  * It integrates with JUnit 5, Arquillian and TestContainers to ensure that the
  * Payara server is started before any tests are run and stopped after all tests have completed.
  * <p>
  * Usage:
  * <pre>
- * &#64;PayaraServerLifecycle
+ * &#64;AppServerLifecycle
  * public class MyArquillianIT {
  *     // Test methods here
  * }
  * </pre>
- * @deprecated - Use {@link AppServerLifecycle} instead - will be removed in 2027
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
@@ -45,6 +44,5 @@ import java.lang.annotation.Target;
 @ExtendWith(ArquillianExtension.class)
 @Inherited
 @Documented
-@Deprecated(forRemoval = true, since = "123")
-public @interface PayaraServerLifecycle {
+public @interface AppServerLifecycle {
 }

@@ -1,1 +1,1 @@
-com.flowlogix.testcontainers.impl.PayaraServerTestContainer
+com.flowlogix.testcontainers.impl.AppServerTestContainer

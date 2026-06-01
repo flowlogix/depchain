@@ -23,48 +23,50 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import static java.util.function.Predicate.not;
 
-public class PayaraServerTestContainer implements ContainerInterface {
-    private GenericContainer<?> payara;
+public class AppServerTestContainer implements ContainerInterface {
+    private GenericContainer<?> server;
 
     @SuppressWarnings("checkstyle:MagicNumber")
     @Override
     public ContainerInterface start(Consumer<GenericContainer<?>> preStart, Consumer<GenericContainer<?>> postStart) {
-        if (payara == null && !Boolean.getBoolean("test.containers.skip")) {
-            Optional<String> imageName = Optional.ofNullable(System.getProperty("payara.image.name"))
+        if (server == null && !Boolean.getBoolean("test.containers.skip")) {
+            Optional<String> imageName = Optional.ofNullable(System.getProperty("payara.image.name",
+                            System.getProperty("server.image.name")))
                     .filter(not(String::isBlank));
-            double memory = Double.parseDouble(System.getProperty("payara.memory.gb", "1.5"));
-            payara = new GenericContainer<>(DockerImageName.parse(imageName.orElse("payara/server-full")))
+            double memory = Double.parseDouble(System.getProperty("payara.memory.gb",
+                    System.getProperty("server.memory.gb", "1.5")));
+            server = new GenericContainer<>(DockerImageName.parse(imageName.orElse("payara/server-full")))
                     .withExposedPorts(4848, 8080, 8181, 9009, 8686, 9010)
                     .withCreateContainerCmdModifier(cmd -> cmd.getHostConfig()
                             .withMemory((long) (memory * 1024 * 1024 * 1024)))
-                    .waitingFor(Wait.forLogMessage(".*Payara Server.*startup time.*\\n", 1));
-            preStart.accept(payara);
+                    .waitingFor(Wait.forLogMessage(".*(Payara Server|GlassFish).*startup time.*\\n", 1));
+            preStart.accept(server);
             if (Boolean.getBoolean("test.containers.jdk.turn-off-sve")) {
-                payara.getEnvMap().compute("JAVA_TOOL_OPTIONS",
+                server.getEnvMap().compute("JAVA_TOOL_OPTIONS",
                         (k, v) ->  v == null ? "-XX:UseSVE=0" : v + " -XX:UseSVE=0");
             }
-            payara.start();
-            System.out.printf("# Payara debugger location: %s:%d%n", payara.getHost(), payara.getMappedPort(9009));
-            System.out.printf("# Payara JMX location: %s:%d,%d%n", payara.getHost(),
-                    payara.getMappedPort(8686), payara.getMappedPort(9010));
-            System.setProperty("adminHost", payara.getHost());
-            System.setProperty("adminPort", Integer.toString(payara.getMappedPort(4848)));
-            System.setProperty("httpPort", Integer.toString(payara.getMappedPort(8080)));
-            System.setProperty("httpsPort", Integer.toString(payara.getMappedPort(8181)));
+            server.start();
+            System.out.printf("# Server debugger location: %s:%d%n", server.getHost(), server.getMappedPort(9009));
+            System.out.printf("# Server JMX location: %s:%d,%d%n", server.getHost(),
+                    server.getMappedPort(8686), server.getMappedPort(9010));
+            System.setProperty("adminHost", server.getHost());
+            System.setProperty("adminPort", Integer.toString(server.getMappedPort(4848)));
+            System.setProperty("httpPort", Integer.toString(server.getMappedPort(8080)));
+            System.setProperty("httpsPort", Integer.toString(server.getMappedPort(8181)));
             if (System.getProperty("sslPort", "").isBlank()) {
-                System.setProperty("sslPort", Integer.toString(payara.getMappedPort(8181)));
+                System.setProperty("sslPort", Integer.toString(server.getMappedPort(8181)));
             }
-            postStart.accept(payara);
+            postStart.accept(server);
         }
         return this;
     }
 
     @Override
     public ContainerInterface stop() {
-        if (payara != null && payara.isRunning()) {
-            payara.stop();
+        if (server != null && server.isRunning()) {
+            server.stop();
         }
-        payara = null;
+        server = null;
         return this;
     }
 }

@@ -23,7 +23,7 @@ import java.util.function.Consumer;
 import static com.flowlogix.testcontainers.ContainerInterface.POST_START_PROPERTY;
 import static com.flowlogix.testcontainers.ContainerInterface.PRE_START_PROPERTY;
 
-public class PayaraServerTestNGLifecycleExtension implements ISuiteListener {
+public class AppServerTestNGLifecycleExtension implements ISuiteListener {
     @Override
     public void onStart(ISuite suite) {
         if (!"Arquillian".equalsIgnoreCase(suite.getName())) {
@@ -35,7 +35,7 @@ public class PayaraServerTestNGLifecycleExtension implements ISuiteListener {
                 var postStart = get(suite, POST_START_PROPERTY, Object.class)
                         .map(obj -> (Consumer<GenericContainer<?>>) obj);
                 ContainerInterface.create(preStart.orElse(container -> { }), postStart.orElse(container -> { }))
-                        .ifPresent(payaraTC -> suite.setAttribute(getClass().getName(), payaraTC));
+                        .ifPresent(serverTC -> suite.setAttribute(getClass().getName(), serverTC));
             }
         }
     }
