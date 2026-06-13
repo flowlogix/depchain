@@ -21,6 +21,8 @@ import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.DockerImageName;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.IntSupplier;
+import java.util.function.Supplier;
 import static java.util.function.Predicate.not;
 
 public class AppServerTestContainer implements ContainerInterface {
@@ -49,10 +51,10 @@ public class AppServerTestContainer implements ContainerInterface {
             System.out.printf("# Server debugger location: %s:%d%n", server.getHost(), server.getMappedPort(9009));
             System.out.printf("# Server JMX location: %s:%d,%d%n", server.getHost(),
                     server.getMappedPort(8686), server.getMappedPort(9010));
-            System.setProperty("adminHost", server.getHost());
-            System.setProperty("adminPort", Integer.toString(server.getMappedPort(4848)));
-            System.setProperty("httpPort", Integer.toString(server.getMappedPort(8080)));
-            System.setProperty("httpsPort", Integer.toString(server.getMappedPort(8181)));
+            setServerSystemProperty("adminHost", server::getHost);
+            setServerSystemProperty("adminPort", () -> server.getMappedPort(4848));
+            setServerSystemProperty("httpPort", () -> server.getMappedPort(8080));
+            setServerSystemProperty("httpsPort", () -> server.getMappedPort(8181));
             if (System.getProperty("sslPort", "").isBlank()) {
                 System.setProperty("sslPort", Integer.toString(server.getMappedPort(8181)));
             }
@@ -68,5 +70,14 @@ public class AppServerTestContainer implements ContainerInterface {
         }
         server = null;
         return this;
+    }
+
+    private void setServerSystemProperty(String property, Supplier<String> value) {
+        System.setProperty(property, value.get());
+        System.setProperty("glassfish." + property, value.get());
+    }
+
+    private void setServerSystemProperty(String property, IntSupplier value) {
+        setServerSystemProperty(property, () -> Integer.toString(value.getAsInt()));
     }
 }
