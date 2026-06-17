@@ -42,7 +42,6 @@
             </exclusions>
         </dependency>
 
-
         <!-- TestNG Support -->
         <dependency>
             <groupId>org.testng</groupId>
