@@ -14,7 +14,7 @@
     <description>Dependency Chain for Apache Shiro and Jakarta EE</description>
 
     <properties>
-        <shiro.version>2.2.0</shiro.version>
+        <shiro.version>2.2.1</shiro.version>
     </properties>
 
     <dependencies>
