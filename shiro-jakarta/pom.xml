@@ -14,7 +14,7 @@
     <description>Dependency Chain for Apache Shiro and Jakarta EE</description>
 
     <properties>
-        <shiro.version>2.2.1</shiro.version>
+        <shiro2.version>2.2.1</shiro2.version>
     </properties>
 
     <dependencies>
@@ -22,7 +22,7 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-core</artifactId>
             <classifier>jakarta</classifier>
-            <version>${shiro.version}</version>
+            <version>${shiro2.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.bouncycastle</groupId>
@@ -34,7 +34,7 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-web</artifactId>
             <classifier>jakarta</classifier>
-            <version>${shiro.version}</version>
+            <version>${shiro2.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.shiro</groupId>
@@ -46,7 +46,7 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-jakarta-ee</artifactId>
             <classifier>jakarta</classifier>
-            <version>${shiro.version}</version>
+            <version>${shiro2.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.shiro</groupId>
@@ -62,7 +62,7 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-cdi</artifactId>
             <classifier>jakarta</classifier>
-            <version>${shiro.version}</version>
+            <version>${shiro2.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.shiro</groupId>
@@ -74,7 +74,7 @@
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-jaxrs</artifactId>
             <classifier>jakarta</classifier>
-            <version>${shiro.version}</version>
+            <version>${shiro2.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.shiro</groupId>
