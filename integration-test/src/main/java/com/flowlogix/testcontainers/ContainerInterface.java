@@ -22,14 +22,14 @@ import java.util.function.Consumer;
 
 public interface ContainerInterface {
     /**
-     * Pre-start property name
+     * Pre-start property name.
      * Called before container start
      * Type of {@code Consumer<GenericContainer<?>>}
      * @see #start(Consumer, Consumer)
      */
     String PRE_START_PROPERTY = ContainerInterface.class.getName() + ".preStart";
     /**
-     * Post-start property name
+     * Post-start property name.
      * Called after container start
      * Type of {@code Consumer<GenericContainer<?>>}
      * @see #start(Consumer, Consumer)
