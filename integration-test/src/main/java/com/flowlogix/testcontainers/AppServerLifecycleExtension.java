@@ -25,8 +25,8 @@ import static com.flowlogix.testcontainers.ContainerInterface.PRE_START_PROPERTY
 import static org.jboss.arquillian.junit5.ArquillianExtension.RUNNING_INSIDE_ARQUILLIAN;
 
 /**
- * For use with JUnit 5
- * {@code @ExtendWith(AppServerLifecycleExtension.class)}
+ * For use with JUnit 5/6
+ * {@code @ExtendWith(AppServerLifecycleExtension.class)}.
  * Needs to go before ArquillianExtension for all test classes
  *
  * @author lprimak
