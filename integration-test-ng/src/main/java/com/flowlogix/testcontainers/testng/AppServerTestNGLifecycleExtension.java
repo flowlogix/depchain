@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.flowlogix.testcontainers;
+package com.flowlogix.testcontainers.testng;
 
+import com.flowlogix.testcontainers.ContainerInterface;
 import org.testcontainers.containers.GenericContainer;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
