@@ -22,14 +22,14 @@
     <parent>
         <groupId>com.flowlogix</groupId>
         <artifactId>infra-pom</artifactId>
-        <version>141</version>
+        <version>142</version>
     </parent>
 
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
         <checkstyle.suppressionsLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/suppressions.xml</checkstyle.suppressionsLocation>
         <jar.skip-if-empty>false</jar.skip-if-empty>
-        <junit.jupiter.version>6.1.2</junit.jupiter.version>
+        <junit.jupiter.version>6.1.3</junit.jupiter.version>
     </properties>
 
     <modules>
