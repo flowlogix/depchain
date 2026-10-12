@@ -59,4 +59,14 @@
             <optional>false</optional>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.shrinkwrap</groupId>
+                <artifactId>shrinkwrap-impl-base</artifactId>
+                <version>${shrinkwrap.api.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
