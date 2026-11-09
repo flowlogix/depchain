@@ -17,15 +17,15 @@ Remove 1000s of lines of boilerplate configuration, and override the provided pr
 Use the https://start.flowlogix.com[FlowLogix Quick Start] web-based tool to download the starter project with one click, or use it to generate a maven or curl command line to run in the terminal.
 
 [source,shell]
-.Single-line starter - generate a JAR sample via curl
+.Single-line starter - generate a WAR sample via curl (default)
 ----
 curl -sSL https://start.flowlogix.com/generate -o starter.zip
 ----
 
 [source,shell]
-.Single-line starter - generate a WAR sample via curl
+.Single-line starter - generate a JAR sample via curl
 ----
-curl -sSL "https://start.flowlogix.com/generate/;packagingType=war" -o starter.zip
+curl -sSL "https://start.flowlogix.com/generate/;packagingType=jar" -o starter.zip
 ----
 
 [source,shell]
